@@ -1,0 +1,13 @@
+# Dependências do Node
+node_modules/
+
+# Variáveis de ambiente
+.env
+
+# Arquivos de log e cache
+npm-debug.log*
+.DS_Store
+
+# Pasta de uploads
+public/uploads/*
+!public/uploads/.gitkeep

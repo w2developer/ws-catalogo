@@ -1,0 +1,28 @@
+{
+  "name": "ws-catalogo",
+  "version": "1.0.0",
+  "description": "Um catalogo de produtos",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/main.js",
+    "dev": "nodemon src/main.js"
+  },
+  "keywords": [
+    "catalogo",
+    "produtos"
+  ],
+  "author": "Wanderson Mateus",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "multer": "^2.1.1",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
