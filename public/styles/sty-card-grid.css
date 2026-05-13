@@ -15,9 +15,10 @@
     border-radius: 20px;
     background: #ffffff;
     flex-direction: column;
+    border: 1px solid #d5d5d5;
     /* border: 1px solid #ff0000; */
-    box-shadow: 0 2px 4px #00000025;
     transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px #00000025;
 }
 
 .badge {

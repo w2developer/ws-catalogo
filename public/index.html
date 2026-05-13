@@ -44,47 +44,35 @@
             </ul>
         </div>
     </header>
-    <section class="section product">
-        <div class="card">
-            <div class="badge" style="background: #10b981;">Novo</div>
-            <div class="card-image-wrapper" onclick="openModal('https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=1000')">
-                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=1000" alt="iPad">
-            </div>
-            <div class="card-body">
-                <h2 class="product-title">iPad Air M1</h2>
-                <p class="product-desc">Produto novo na caixa, nunca ativado.</p>
-                <div class="spec-grid">
-                    <div class="spec-item"><span class="spec-label">Cor</span><span class="spec-value">Estelar</span></div>
-                    <div class="spec-item"><span class="spec-label">Lacrado</span><span class="spec-value">Sim</span></div>
-                    <div class="spec-item"><span class="spec-label">Condição</span><span class="spec-value">Novo</span></div>
-                    <div class="spec-item"><span class="spec-label">Bateria</span><span class="spec-value">100%</span></div>
-                </div>
-                <button class="btn-order">Fazer Pedido</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="badge">Semi Novo</div>
-            <div class="card-image-wrapper" onclick="openModal('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1000')">
-                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1000" alt="Macbook">
-            </div>
-            <div class="card-body">
-                <h2 class="product-title">MacBook Air</h2>
-                <p class="product-desc">Leve detalhe na quina esquerda, performance impecável.</p>
-                <div class="spec-grid">
-                    <div class="spec-item"><span class="spec-label">Cor</span><span class="spec-value">Cinza Espacial</span></div>
-                    <div class="spec-item"><span class="spec-label">Lacrado</span><span class="spec-value">Não</span></div>
-                    <div class="spec-item"><span class="spec-label">Condição</span><span class="spec-value">Semi Novo</span></div>
-                    <div class="spec-item"><span class="spec-label">Bateria</span><span class="spec-value">91%</span></div>
-                </div>
-                <button class="btn-order">Fazer Pedido</button>
-            </div>
-        </div>
-    </section>
+    <section class="section product"></section>
 
     <section>
         
     </section>
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="imgFull" alt="">
+    </div>
 <script src="./scripts/off-canvas-mobile-menu.js"></script>
+    <script>
+        // Abre o modal com a imagem clicada
+        function openModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('imgFull');
+            modal.classList.add('active');
+            modalImg.src = src;
+        }
+
+        // Fecha o modal
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('active');
+        }
+
+        // Fecha se apertar a tecla Esc
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeModal();
+        });
+    </script>
+<script src="./scripts/lista-produtos.js"></script>
 </body>
 </html>
