@@ -1,0 +1,28 @@
+@import url('./styles/header.css');
+@import url('./styles/sty-welcome.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    background: black;
+}
+
+section {
+    width: 100%;
+    min-height: 100vh;
+}
+section.welcome {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
