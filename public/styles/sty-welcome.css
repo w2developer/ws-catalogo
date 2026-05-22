@@ -1,86 +1,50 @@
-.section.welcome {
-    gap: 20px;
+.welcome {
     display: flex;
-    min-height: 100vh;
     align-items: center;
-    flex-direction: column;
     justify-content: center;
+    background: transparent !important;
+    min-height: calc(100vh - 80px) !important;
 }
 
-.section.welcome .box-title {
+.welcone-content {
     gap: 1rem;
-    width: 100%;
     display: flex;
-    /* border: 1px solid #000; */
-    min-height: 250px;
+    padding: 1rem;
+    max-width: 1000px;
     text-align: center;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    /* border: 1px solid #000; */
 }
-.section.welcome .box-title h2 {
-    font-size: 3.8rem;
+
+.welcone-content h2 {
+    font-size: 4rem;
 }
-.section.welcome .box-title h2 span {
+
+.welcone-content h2 span {
     color: var(--primary-color);
 }
-.section.welcome .box-title p {
+
+.welcone-content p {
     max-width: 750px;
     font-size: 1.1rem;
+    margin-bottom: 2rem;
 }
-.section.welcome .box-title a {
-    color: #fff;
-    font-size: 1rem;
-    min-width: 250px;
-    font-weight: 600;
-    padding: 10px 20px;
+
+.welcone-content a {
+    padding: .8rem;
+    min-width: 280px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
     border-radius: 50px;
     text-decoration: none;
-    transition: all .3s ease;
     background: var(--primary-color);
 }
-.section.welcome .box-title a:hover {
-    background: #d46d00;
-}
 
-
-.section.welcome .card-info {
-    width: 100%;
-    color: #fff;
-    padding: 1rem;
-    min-height: 250px;
-    border-radius: 10px;
-    background-image: url('../assets/back.jpg');
-    background-size: cover;
-    background-position: center;
-
-    gap: 1rem;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-}
-.section.welcome .card-info h3 {
-    font-size: 2rem;
-    text-align: center;
-    text-shadow: 0px 0px 5px #00000080;
-}
-.section.welcome .card-info p {
-    max-width: 500px;
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 1.1rem;
-    text-shadow: 0px 0px 5px #00000080;
-}
-
-@media (max-width: 768px) {
-    .section.welcome .box-title h2 {
+@media (max-width: 550px) {
+    .welcone-content h2 {
         font-size: 2.5rem;
-    }
-    .section.welcome .card-info h3 {
-        font-size: 1.6rem;
-    }
-    .section.welcome .card-info p {
-        font-size: 1rem;
     }
 }

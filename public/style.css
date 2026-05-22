@@ -15,17 +15,16 @@
 
 body {
     overflow-x: hidden;
-    background: #fff;
+    background-image: url('/public/assets/img/welcome-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 section {
-    width: 100%;
-    padding: 20px;
+    width: 100vw;
+    padding: 1rem;
     margin: 0 auto;
-    max-width: 1000px;
+    min-height: 100vh;
+    background: #ffffff;
 }
-section.product {
-    margin-top: 60px;
-}
-
-
