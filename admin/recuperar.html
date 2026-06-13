@@ -36,6 +36,8 @@
     <script>
         const supabaseUrl = 'https://qglslyrlxxevqeagghvd.supabase.co'
         const supabaseKey = 'sb_publishable_oeJQrZAL6anvLtFxu5S5tA_LtaIKrvc'
+        
+        // Inicializa o cliente do Supabase
         const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
 
         const form = document.getElementById('recovery-form')
@@ -47,9 +49,8 @@
 
             const email = document.getElementById('email').value
 
-            // Envia o e-mail de redefinição de senha
+            // Dispara o e-mail de redefinição
             const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-                // Para onde o usuário vai ao clicar no link do e-mail
                 redirectTo: window.location.origin + '/atualizar-senha.html',
             })
 
