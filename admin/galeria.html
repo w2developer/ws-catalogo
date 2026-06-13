@@ -60,21 +60,20 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/scripts/script-controle.js"></script>
     <script>
         (async () => {
             const supabaseUrl = 'https://qglslyrlxxevqeagghvd.supabase.co'
             const supabaseKey = 'sb_publishable_oeJQrZAL6anvLtFxu5S5tA_LtaIKrvc'
-
+            
             const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
-
+            
             const { data: { session } } = await supabaseClient.auth.getSession()
-
+            
             if (!session) {
                 window.location.href = './login.html'
                 return
             }
-
+            
             const logoutBtn = document.getElementById('logout-btn')
             
             if (logoutBtn) {
@@ -84,6 +83,7 @@
                 })
             }
         })()
-    </script>
+        </script>
+        <script src="/scripts/script-controle.js"></script>
 </body>
 </html>

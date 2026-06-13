@@ -6,26 +6,6 @@
     <title>Ws For Men - Controle</title>
     <link rel="shortcut icon" href="/assets/svg/WS_Branco.svg" type="image/x-icon">
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-        (async () => {
-            // Configurações do Supabase
-            const supabaseUrl = 'https://qglslyrlxxevqeagghvd.supabase.co'
-            const supabaseKey = 'sb_publishable_oeJQrZAL6anvLtFxu5S5tA_LtaIKrvc'
-
-            // Inicializa o cliente
-            const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
-
-            // Busca a sessão atual salva localmente
-            const { data: { session } } = await supabaseClient.auth.getSession()
-
-            // Se não houver sessão ativa, redireciona para a página de login
-            if (!session) {
-                window.location.href = 'index.html' // Altere para o nome do seu arquivo de login
-            }
-        })()
-    </script>
-
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/styles/sty-product-list.css">
@@ -173,15 +153,13 @@
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="/scripts/script-controle.js"></script>
 <script>
     (async () => {
         const supabaseUrl = 'https://qglslyrlxxevqeagghvd.supabase.co'
         const supabaseKey = 'sb_publishable_oeJQrZAL6anvLtFxu5S5tA_LtaIKrvc'
-
+        
         const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
-
+        
         const { data: { session } } = await supabaseClient.auth.getSession()
 
         if (!session) {
@@ -199,5 +177,7 @@
         }
     })()
 </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="/scripts/script-controle.js"></script>
 </body>
 </html>

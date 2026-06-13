@@ -82,6 +82,20 @@
             text-align: center;
             display: none;
         }
+        .forgot-password-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .forgot-password-link a {
+            color: #007bff;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .forgot-password-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -97,6 +111,11 @@
                 <input type="password" id="password" name="password" required>
             </div>
             <button type="submit" class="login-btn">Entrar</button>
+            
+            <div class="forgot-password-link">
+                <a href="recuperar.html">Esqueceu sua senha?</a>
+            </div>
+
             <div class="error-message" id="error-message"></div>
         </form>
     </div>

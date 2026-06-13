@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Senha</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #f5f5f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .container { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 400px; }
+        h1 { text-align: center; margin-bottom: 20px; color: #333; font-size: 24px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #555; font-weight: bold; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; }
+        .btn { width: 100%; padding: 12px; background: #e07800; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        .btn:hover { background: #c06600; }
+        .msg { margin-top: 15px; text-align: center; display: none; }
+        .error { color: #dc3545; }
+        .success { color: #28a745; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Criar Nova Senha</h1>
+        <form id="password-form">
+            <div class="form-group">
+                <label for="new-password">Nova Senha</label>
+                <input type="password" id="new-password" required minlength="6">
+            </div>
+            <button type="submit" class="btn">Atualizar Senha</button>
+            <div id="msg-box" class="msg"></div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const supabaseUrl = 'https://qglslyrlxxevqeagghvd.supabase.co'
+        const supabaseKey = 'sb_publishable_oeJQrZAL6anvLtFxu5S5tA_LtaIKrvc'
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
+
+        const form = document.getElementById('password-form')
+        const msgBox = document.getElementById('msg-box')
+
+        // Verifica de cara se o token vindo do e-mail é válido
+        // Se o usuário tentar acessar essa página direto sem o link do e-mail, ele não passa daqui
+        async function checarToken() {
+            const { data: { session } } = await supabaseClient.auth.getSession()
+            if (!session) {
+                alert('Link de redefinição inválido ou expirado.')
+                window.location.href = './controle.html'
+            }
+        }
+        checarToken()
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault()
+            msgBox.style.display = 'none'
+
+            const password = document.getElementById('new-password').value
+
+            // Atualiza a senha do usuário atualmente autenticado pelo token do e-mail
+            const { error } = await supabaseClient.auth.updateUser({
+                password: password
+            })
+
+            if (error) {
+                msgBox.textContent = error.message
+                msgBox.className = 'msg error'
+                msgBox.style.display = 'block'
+                return
+            }
+
+            msgBox.textContent = 'Senha atualizada com sucesso! Redirecionando...'
+            msgBox.className = 'msg success'
+            msgBox.style.display = 'block'
+
+            // Desloga o usuário por segurança e joga ele para fazer o login manual com a nova senha
+            await supabaseClient.auth.signOut()
+            setTimeout(() => {
+                window.location.href = './controle.html'
+            }, 3000)
+        })
+    </script>
+</body>
+</html>
