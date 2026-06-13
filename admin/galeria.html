@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ws For Men - Galeria</title>
+    <link rel="shortcut icon" href="/assets/svg/WS_Branco.svg" type="image/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/styles/sty-product-list.css">
+    <link rel="stylesheet" href="/styles/sty-modal-produto.css">
+    <link rel="stylesheet" href="/styles/admin/sty-galeria.css">
+
+    <!-- Remixicon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Google Fontes ! Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+    <!-- Supabase -->
+     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+
+    <div class="header-menu">
+        <nav>
+            <a href="./controle.html">
+                <img src="/assets/svg/WS_Branco.svg" alt="Logo da Ws For Men">
+            </a>
+            <ul>
+                <li><a href="./controle.html">Controle</a></li>
+                <li><a href="#">Galeria</a></li>
+                <li><a href="./tags.html">Tags</a></li>
+            </ul>
+            <button id="logout-btn" style="cursor: pointer; padding: .1rem; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; background: transparent; border: none; outline: none; color: #ffffff;">
+                <i class="ri-logout-box-line"></i>
+            </button>
+        </nav>
+    </div>
+    <div class="margin-false" style="height: 90px;">
+
+    </div>
+    <div class="container">
+        <h1 style="text-align: center;">Armazenamento de Imagens</h1>
+        
+        <div class="card" style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <label style="font-weight: 600;">Fazer Upload para o Storage</label>
+            <input type="file" accept="image/*" onchange="processarUploadStorage(event)" style="margin-top: 10px;">
+        </div>
+
+        <h2>Arquivos Salvos</h2>
+        <div class="gallery-grid" id="galeria-grid-corpo">
+            </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/scripts/script-controle.js"></script>
+    <script>
+        (async () => {
+            const supabaseUrl = 'https://qglslyrlxxevqeagghvd.supabase.co'
+            const supabaseKey = 'sb_publishable_oeJQrZAL6anvLtFxu5S5tA_LtaIKrvc'
+
+            const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
+
+            const { data: { session } } = await supabaseClient.auth.getSession()
+
+            if (!session) {
+                window.location.href = './login.html'
+                return
+            }
+
+            const logoutBtn = document.getElementById('logout-btn')
+            
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', async () => {
+                    await supabaseClient.auth.signOut()
+                    window.location.href = './login.html'
+                })
+            }
+        })()
+    </script>
+</body>
+</html>

@@ -1,9 +1,10 @@
 .welcome {
     display: flex;
+    min-height: 100vh;
     align-items: center;
     justify-content: center;
     background: transparent !important;
-    min-height: calc(100vh - 80px) !important;
+    /* min-height: calc(100vh - 80px) !important; */
 }
 
 .welcone-content {
@@ -15,11 +16,30 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    /* border: 1px solid #000; */
 }
 
 .welcone-content h2 {
     font-size: 4rem;
+}
+
+.welcone-content .rotas {
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    min-height: 180px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcone-content .rotas h3 {
+    font-size: 2rem;
+    text-shadow: 1px 1px 0px #ffffff;
+}
+
+.welcone-content .rotas .links {
+    gap: 1rem;
+    display: flex;
 }
 
 .welcone-content h2 span {
@@ -30,6 +50,7 @@
     max-width: 750px;
     font-size: 1.1rem;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 0px #ffffff;
 }
 
 .welcone-content a {
@@ -41,10 +62,23 @@
     border-radius: 50px;
     text-decoration: none;
     background: var(--primary-color);
+    box-shadow: 1px 1px 4px #00000025;
 }
 
 @media (max-width: 550px) {
+    body {
+        background-position: right;
+        background-attachment: scroll !important;
+    }
     .welcone-content h2 {
         font-size: 2.5rem;
+    }
+    .welcone-content .rotas h3 {
+        font-size: 1.5rem;
+    }
+    .welcone-content .rotas .links {
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
     }
 }

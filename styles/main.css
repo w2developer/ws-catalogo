@@ -1,0 +1,22 @@
+@import url('./header.css');
+@import url('./sty-welcome.css');
+@import url('./sty-product-list.css');
+
+:root {
+    --primary-color: #e07800;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: url('/assets/img/welcome-bg.png');
+}

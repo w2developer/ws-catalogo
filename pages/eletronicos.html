@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ws For Men - Eletrônicos</title>
+    <link rel="shortcut icon" href="/assets/svg/WS_Branco.svg" type="image/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/styles/sty-product-list.css">
+
+    <!-- Remixicon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Google Fontes ! Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+    <!-- Supabase -->
+     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+<body>
+    <div class="header-menu">
+        <nav>
+            <a href="/index.html">
+                <img src="/assets/svg/WS_Branco.svg" alt="Logo da Ws For Men">
+            </a>
+            <ul>
+                <li><a href="/pages/roupas.html">Roupas</a></li>
+                <li><a href="/pages/eletronicos.html">Eletrônicos</a></li>
+            </ul>
+            <div class="social-media">
+                <a href="https://wa.me/559984028208 ">
+                    <i class="ri-whatsapp-line"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Catálogo de Eletrônicos</h1>
+        </header>
+
+        <main id="catalog-content"></main>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="imgFull" alt="" onclick="event.stopPropagation()">
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="/scripts/script-eletronicos.js"></script>
+</body>
+</html>

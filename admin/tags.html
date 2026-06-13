@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ws For Men - Tags</title>
+    <link rel="shortcut icon" href="/assets/svg/WS_Branco.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/styles/sty-product-list.css">
+    <link rel="stylesheet" href="/styles/sty-modal-produto.css">
+    <link rel="stylesheet" href="/styles/admin/sty-galeria.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        :root {
+            --danger-color: #ef4444;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .section-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Formulários */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+            background: #f1f5f9;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .form-control {
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-block:hover {
+            background: #1d4ed8;
+        }
+
+        /* Lista de Itens Customizada */
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: #fafafa;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .item-row:hover {
+            background: #f1f5f9;
+            transform: translateX(2px);
+        }
+
+        .item-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .item-badge {
+            font-size: 0.75rem;
+            background: #e2e8f0;
+            color: var(--text-muted);
+            padding: 2px 8px;
+            border-radius: 12px;
+            width: fit-content;
+        }
+
+        .btn-delete {
+            background: transparent;
+            border: none;
+            color: var(--danger-color);
+            cursor: pointer;
+            font-size: 1.25rem;
+            padding: 8px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .btn-delete:hover {
+            background: #fee2e2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-menu">
+        <nav>
+            <a href="./controle.html">
+                <img src="/assets/svg/WS_Branco.svg" alt="Logo da Ws For Men">
+            </a>
+            <ul>
+                <li><a href="./controle.html">Controle</a></li>
+                <li><a href="./galeria.html">Galeria</a></li>
+                <li><a href="#">Tags</a></li>
+            </ul>
+            <button id="logout-btn" style="cursor: pointer; padding: .1rem; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; background: transparent; border: none; outline: none; color: #ffffff;">
+                <i class="ri-logout-box-line"></i>
+            </button>
+        </nav>
+    </div>
+
+    <div class="margin-false" style="height: 90px;"></div>
+
+    <div class="container">
+        <div class="dashboard-grid">
+            
+            <div class="section-card">
+                <h2 class="section-title"><i class="ri-bookmark-3-fill"></i> Marcas</h2>
+                
+                <form id="form-marca" class="form-group">
+                    <input type="text" id="nome-marca" class="form-control" placeholder="Nome da Marca" required>
+                    <select id="setor-marca" class="form-control" required>
+                        <option value="">Selecione o Setor...</option>
+                    </select>
+                    <button type="submit" class="btn-block"><i class="ri-add-line"></i> Adicionar Marca</button>
+                </form>
+
+                <div id="lista-marcas" class="items-list">
+                    </div>
+            </div>
+
+            <div class="section-card">
+                <h2 class="section-title"><i class="ri-price-tag-3-fill"></i> Categorias</h2>
+                
+                <form id="form-categoria" class="form-group">
+                    <input type="text" id="nome-categoria" class="form-control" placeholder="Nome da Categoria" required>
+                    <select id="setor-categoria" class="form-control" required>
+                        <option value="">Selecione o Setor...</option>
+                    </select>
+                    <button type="submit" class="btn-block"><i class="ri-add-line"></i> Adicionar Categoria</button>
+                </form>
+
+                <div id="lista-categorias" class="items-list">
+                    </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        (async () => {
+            const supabaseUrl = 'https://qglslyrlxxevqeagghvd.supabase.co'
+            const supabaseKey = 'sb_publishable_oeJQrZAL6anvLtFxu5S5tA_LtaIKrvc'
+
+            const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
+
+            const { data: { session } } = await supabaseClient.auth.getSession()
+
+            if (!session) {
+                window.location.href = './login.html'
+                return
+            }
+
+            const logoutBtn = document.getElementById('logout-btn')
+            
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', async () => {
+                    await supabaseClient.auth.signOut()
+                    window.location.href = './login.html'
+                })
+            }
+        })()
+    </script>
+    
+    <script>
+        // Inicialização do Supabase usando suas credenciais existentes
+        const supabaseUrl = 'https://qglslyrlxxevqeagghvd.supabase.co';
+        const supabaseAnonKey = 'sb_publishable_oeJQrZAL6anvLtFxu5S5tA_LtaIKrvc';
+        const client = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+        let listaSetores = [];
+
+        // Inicializador principal
+        document.addEventListener('DOMContentLoaded', async () => {
+            await carregarSetores();
+            await carregarMarcas();
+            await carregarCategorias();
+            configurarFormularios();
+        });
+
+        // Carrega os setores nos selects de cadastro
+        async function carregarSetores() {
+            const { data, error } = await client.from('setores').select('id, nome');
+            if (error) return console.error('Erro ao carregar setores:', error);
+            
+            if (data) {
+                listaSetores = data;
+                const selects = [document.getElementById('setor-marca'), document.getElementById('setor-categoria')];
+                
+                selects.forEach(select => {
+                    if (!select) return;
+                    select.innerHTML = '<option value="">Selecione o Setor...</option>';
+                    data.forEach(setor => {
+                        select.innerHTML += `<option value="${setor.id}">${setor.nome}</option>`;
+                    });
+                });
+            }
+        }
+
+        // Busca e renderiza Marcas em formato Flex/Grid
+        async function carregarMarcas() {
+            const container = document.getElementById('lista-marcas');
+            if (!container) return;
+
+            const { data: marcas, error } = await client.from('marcas').select('id, nome, setores(nome)');
+            if (error) return console.error('Erro ao buscar marcas:', error);
+
+            container.innerHTML = marcas.length === 0 ? '<p style="color: var(--text-muted);">Nenhuma marca cadastrada.</p>' : '';
+
+            marcas.forEach(marca => {
+                const setorNome = marca.setores ? marca.setores.nome : 'Sem Setor';
+                const item = document.createElement('div');
+                item.className = 'item-row';
+                item.innerHTML = `
+                    <div class="item-info">
+                        <span class="item-name">${marca.nome}</span>
+                        <span class="item-badge">${setorNome}</span>
+                    </div>
+                    <button class="btn-delete" onclick="excluirItem('marcas', '${marca.id}', carregarMarcas)" title="Excluir">
+                        <i class="ri-delete-bin-6-line"></i>
+                    </button>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Busca e renderiza Categorias em formato Flex/Grid
+        async function carregarCategorias() {
+            const container = document.getElementById('lista-categorias');
+            if (!container) return;
+
+            const { data: categorias, error } = await client.from('categorias').select('id, nome, setores(nome)');
+            if (error) return console.error('Erro ao buscar categorias:', error);
+
+            container.innerHTML = categorias.length === 0 ? '<p style="color: var(--text-muted);">Nenhuma categoria cadastrada.</p>' : '';
+
+            categorias.forEach(cat => {
+                const setorNome = cat.setores ? cat.setores.nome : 'Sem Setor';
+                const item = document.createElement('div');
+                item.className = 'item-row';
+                item.innerHTML = `
+                    <div class="item-info">
+                        <span class="item-name">${cat.nome}</span>
+                        <span class="item-badge">${setorNome}</span>
+                    </div>
+                    <button class="btn-delete" onclick="excluirItem('categorias', '${cat.id}', carregarCategorias)" title="Excluir">
+                        <i class="ri-delete-bin-6-line"></i>
+                    </button>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Configura envio e submissão dos formulários
+        function configurarFormularios() {
+            // Submit Marca
+            document.getElementById('form-marca')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const nome = document.getElementById('nome-marca').value;
+                const setor_id = parseInt(document.getElementById('setor-marca').value);
+
+                const { error } = await client.from('marcas').insert([{ nome, setor_id }]);
+                tratarResposta(error, 'Marca salva com sucesso!', e.target, carregarMarcas);
+            });
+
+            // Submit Categoria
+            document.getElementById('form-categoria')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const nome = document.getElementById('nome-categoria').value;
+                const setor_id = parseInt(document.getElementById('setor-categoria').value);
+
+                const { error } = await client.from('categorias').insert([{ nome, setor_id }]);
+                tratarResposta(error, 'Categoria salva com sucesso!', e.target, carregarCategorias);
+            });
+        }
+
+        // Centraliza os feedbacks de sucesso/erro dos inserts
+        function tratarResposta(error, mensagemSucesso, formElement, callbackAtualizar) {
+            if (error) {
+                Swal.fire('Erro', 'Erro ao salvar item: ' + error.message, 'error');
+            } else {
+                Swal.fire('Sucesso!', mensagemSucesso, 'success');
+                formElement.reset();
+                callbackAtualizar();
+            }
+        }
+
+        // Remove itens dinamicamente (Marca ou Categoria) do banco
+        async function excluirItem(tabela, id, callbackAtualizar) {
+            const resultado = await Swal.fire({
+                title: 'Tem certeza?',
+                text: `Deseja remover este registro de ${tabela}? Isso pode afetar produtos vinculados.`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonColor: '#64748b',
+                confirmButtonText: 'Sim, excluir!',
+                cancelButtonText: 'Cancelar'
+            });
+
+            if (resultado.isConfirmed) {
+                const { error } = await client.from(tabela).delete().eq('id', id);
+                if (error) {
+                    Swal.fire('Erro', 'Não foi possível excluir: ' + error.message, 'error');
+                } else {
+                    Swal.fire('Excluído!', 'Registro removido com sucesso.', 'success');
+                    callbackAtualizar();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
