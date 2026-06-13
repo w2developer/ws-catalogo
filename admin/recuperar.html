@@ -51,7 +51,7 @@
 
             // Dispara o e-mail de redefinição
             const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-                redirectTo: window.location.origin + '/atualizar-senha.html',
+                redirectTo: window.location.origin + '/admin/atualizar-senha.html',
             })
 
             if (error) {
